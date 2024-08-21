@@ -10,9 +10,12 @@
     "server": "json-server ./data/data.json --port 8000"
   },
   "dependencies": {
+    "@radix-ui/react-icons": "^1.3.0",
     "@tanstack/react-query": "^5.52.0",
     "@tanstack/react-query-devtools": "^5.52.0",
     "axios": "^1.7.4",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.3.29",
     "json-server": "^1.0.0-beta.2",
     "next": "14.2.5",
@@ -21,6 +24,8 @@
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
     "react-if": "^4.1.5",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7",
     "zustand": "^4.5.5"
   },
   "devDependencies": {
