@@ -1,4 +1,4 @@
-import EmployeeDetails from "@/components/Employee/EmployeeDetails";
+import { EmployeeDetails } from "@/components/employee";
 
 interface PageProps {
   params: {

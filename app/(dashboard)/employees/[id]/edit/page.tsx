@@ -1,11 +1,11 @@
 "use client";
-import EmployeeForm from "@/components/Employee/EmployeeForm";
 import {
   useUpdateEmployeeQuery,
   useEmployeeQuery,
   useDeleteEmployeeQuery,
 } from "@/hooks";
 import { Employee } from "@/schemas";
+import { EmployeeForm } from "@/components/employee";
 
 interface PageProps {
   params: {

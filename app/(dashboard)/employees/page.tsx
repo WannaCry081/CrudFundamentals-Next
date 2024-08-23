@@ -1,5 +1,5 @@
 import Link from "next/link";
-import EmployeeList from "@/components/Employee/EmployeeList";
+import { EmployeeList } from "@/components/employee";
 
 export default function Employee() {
   return (

@@ -1,5 +1,5 @@
 "use client";
-import EmployeeForm from "@/components/Employee/EmployeeForm";
+import { EmployeeForm } from "@/components/employee";
 import { useCreateEmployeeQuery } from "@/hooks";
 import { Employee } from "@/schemas";
 
