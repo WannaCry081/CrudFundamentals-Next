@@ -1,2 +1,2 @@
-export { default as CreateEmployee } from "@/actions/employees/CreateEmployee";
-export { default as UpdateEmployee } from "@/actions/employees/UpdateEmployee";
+export { default as CreateEmployeeAction } from "@/actions/employees/CreateEmployeeAction";
+export { default as UpdateEmployeeAction } from "@/actions/employees/UpdateEmployeeAction";
