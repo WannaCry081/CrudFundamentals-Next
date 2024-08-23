@@ -2,7 +2,7 @@
 import { EmployeeSchema, type Employee } from "@/schemas";
 import { EmployeeService } from "@/services";
 
-const CreateEmployee = async (values: Employee) => {
+const CreateEmployeeAction = async (values: Employee) => {
   const { data, error, success } = EmployeeSchema.safeParse(values);
 
   if (!success) {
@@ -23,4 +23,4 @@ const CreateEmployee = async (values: Employee) => {
   }
 };
 
-export default CreateEmployee;
+export default CreateEmployeeAction;

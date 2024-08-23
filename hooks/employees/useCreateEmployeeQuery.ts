@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { useMutation, QueryClient } from "@tanstack/react-query";
-import { CreateEmployee } from "@/actions";
+import { CreateEmployeeAction } from "@/actions";
 import { toast } from "react-hot-toast";
 
 const useCreateEmployeeQuery = () => {
@@ -10,7 +10,7 @@ const useCreateEmployeeQuery = () => {
   const [isPending, startTransition] = useTransition();
 
   const { mutate: createEmployee } = useMutation({
-    mutationFn: CreateEmployee,
+    mutationFn: CreateEmployeeAction,
     onSuccess: () => {
       startTransition(() => {
         queryClient.invalidateQueries({
