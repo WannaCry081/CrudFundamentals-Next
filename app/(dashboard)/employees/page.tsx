@@ -1,3 +1,4 @@
+import Link from "next/link";
 import EmployeeList from "@/components/Employee/EmployeeList";
 
 export default function Employee() {
@@ -5,6 +6,7 @@ export default function Employee() {
     <article>
       <section>
         <h1>Employee</h1>
+        <Link href="employees/create">Add new Employee</Link>
       </section>
 
       <section>
