@@ -1,4 +1,4 @@
 export {
   EmployeeSchema,
   type Employee,
-} from "@/schemas/employees/EmployeeSchema";
+} from "@/schemas/employee/EmployeeSchema";
