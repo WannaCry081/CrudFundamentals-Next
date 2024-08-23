@@ -1,3 +1,5 @@
+import EmployeeList from "@/components/Employee/EmployeeList";
+
 export default function Employee() {
   return (
     <article>
@@ -6,7 +8,7 @@ export default function Employee() {
       </section>
 
       <section>
-
+        <EmployeeList />
       </section>
     </article>
   );
