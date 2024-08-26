@@ -1,8 +1,8 @@
 "use server";
-import { EmployeeSchema, type Employee } from "@/schemas";
+import { EmployeeSchema, type EmployeeSchemaType } from "@/schemas";
 import { EmployeeService } from "@/services";
 
-const UpdateEmployeeAction = async (id: string, values: Employee) => {
+const UpdateEmployeeAction = async (id: string, values: EmployeeSchemaType) => {
   const { data, success, error } = EmployeeSchema.safeParse(values);
 
   if (!success) {
