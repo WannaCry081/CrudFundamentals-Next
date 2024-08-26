@@ -2,8 +2,8 @@ import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { QueryClient, useMutation } from "@tanstack/react-query";
 import { UpdateEmployeeAction } from "@/actions";
-import { Employee } from "@/schemas";
-import toast from "react-hot-toast";
+import { EmployeeSchemaType } from "@/schemas";
+import { AlertDialog } from "@/components/shared";
 
 const useUpdateEmployeeQuery = (id: string) => {
   const router = useRouter();
@@ -11,7 +11,8 @@ const useUpdateEmployeeQuery = (id: string) => {
   const [isPending, startTransition] = useTransition();
 
   const { mutate: updateEmployee } = useMutation({
-    mutationFn: (values: Employee) => UpdateEmployeeAction(id, values),
+    mutationFn: (values: EmployeeSchemaType) =>
+      UpdateEmployeeAction(id, values),
     onSuccess: () => {
       startTransition(() => {
         queryClient.invalidateQueries({
@@ -19,11 +20,11 @@ const useUpdateEmployeeQuery = (id: string) => {
           exact: true,
         });
       });
-      router.push("/employees");
-      toast.success("Successfully Updated Employee");
+      router.replace("/employees");
+      AlertDialog.Success("Successfully Updated Employee");
     },
     onError: (error) => {
-      toast.error(error.message);
+      AlertDialog.Error(error.message);
     },
   });
 

@@ -1,8 +1,8 @@
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { QueryClient, useMutation } from "@tanstack/react-query";
-import { EmployeeService } from "@/services";
-import toast from "react-hot-toast";
+import { AlertDialog } from "@/components/shared";
+import { DestroyEmployeeAction } from "@/actions";
 
 const useDestroyEmployeeQuery = (id: string) => {
   const router = useRouter();
@@ -10,7 +10,7 @@ const useDestroyEmployeeQuery = (id: string) => {
   const [isPending, startTransition] = useTransition();
 
   const { mutate: destroyEmployee } = useMutation({
-    mutationFn: EmployeeService.destroy,
+    mutationFn: () => DestroyEmployeeAction(id),
     onSuccess: () => {
       startTransition(() => {
         queryClient.invalidateQueries({
@@ -18,11 +18,11 @@ const useDestroyEmployeeQuery = (id: string) => {
           exact: true,
         });
       });
-      router.push("/employees");
-      toast.success("Successfully Deleted Employee");
+      router.replace("/employees");
+      AlertDialog.Success("Successfully Deleted Employee");
     },
     onError: (error) => {
-      toast.error(error.message);
+      AlertDialog.Error(error.message);
     },
   });
 

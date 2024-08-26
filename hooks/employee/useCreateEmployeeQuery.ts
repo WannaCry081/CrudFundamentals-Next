@@ -2,7 +2,7 @@ import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { useMutation, QueryClient } from "@tanstack/react-query";
 import { CreateEmployeeAction } from "@/actions";
-import { toast } from "react-hot-toast";
+import { AlertDialog } from "@/components/shared";
 
 const useCreateEmployeeQuery = () => {
   const router = useRouter();
@@ -18,11 +18,11 @@ const useCreateEmployeeQuery = () => {
           exact: true,
         });
       });
-      router.push("/employees");
-      toast.success("Successfully Added Employee.");
+      router.replace("/employees");
+      AlertDialog.Success("Successfully Added Employee.");
     },
     onError: (error) => {
-      toast.error(error.message);
+      AlertDialog.Error(error.message);
     },
   });
 
