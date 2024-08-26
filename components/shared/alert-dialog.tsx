@@ -22,7 +22,7 @@ const BaseAlertDialog = ({
       <Alert
         variant={variant}
         className={twJoin(
-          "bg-background",
+          "bg-background min-w-min w-full max-w-96",
           variant ?? "text-green-600 border-green-600",
           t.visible ? "animate-enter" : "animate-leave"
         )}
