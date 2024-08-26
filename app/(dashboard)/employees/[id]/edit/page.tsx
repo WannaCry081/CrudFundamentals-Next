@@ -2,10 +2,11 @@
 import {
   useUpdateEmployeeQuery,
   useEmployeeQuery,
-  useDeleteEmployeeQuery,
+  useDestroyEmployeeQuery,
 } from "@/hooks";
-import { Employee } from "@/schemas";
 import { EmployeeForm } from "@/components/employee";
+import { BackButton } from "@/components/shared";
+import { EmployeeFormState } from "@/components/employee";
 
 interface PageProps {
   params: {
@@ -16,35 +17,40 @@ interface PageProps {
 export default function Page({ params }: PageProps) {
   const id = params.id;
 
-  const { data, error, isLoading } = useEmployeeQuery(id);
+  const { data, isLoading, isError } = useEmployeeQuery(id);
   const { isUpdatePending, updateEmployee } = useUpdateEmployeeQuery(id);
-  const { isDestroyPending, destroyEmployee } = useDeleteEmployeeQuery(id);
-
-  const onUpdateSubmit = (values: Employee) => updateEmployee(values);
-  const onDeleteSubmit = () => destroyEmployee(id);
+  const { isDestroyPending, destroyEmployee } = useDestroyEmployeeQuery(id);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <EmployeeFormState.LoadingState />;
   }
 
-  if (error) {
-    return <div>Error...</div>;
+  if (isError) {
+    return <EmployeeFormState.ErrorState />;
   }
 
   if (!data) {
-    return <div>Not Found</div>;
+    return <EmployeeFormState.NotFoundState />;
   }
 
   return (
-    <section>
-      <h1>Edit Employees</h1>
+    <article>
+      <section className="my-4">
+        <BackButton />
+      </section>
+
+      <section className="mb-4">
+        <h1 className="text-2xl font-bold text-indigo-500">
+          Edt Employee Detail
+        </h1>
+      </section>
 
       <EmployeeForm
         isPending={isUpdatePending || isDestroyPending}
         initialData={data}
-        onSubmit={onUpdateSubmit}
-        onDelete={onDeleteSubmit}
+        onSubmit={updateEmployee}
+        onDelete={destroyEmployee}
       />
-    </section>
+    </article>
   );
 }
