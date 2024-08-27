@@ -9,7 +9,19 @@ interface ProvidersProps {
 }
 
 const Providers = ({ children }: ProvidersProps) => {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            refetchOnWindowFocus: true,
+            refetchOnReconnect: true,
+            refetchInterval: 1000 * 60,
+            refetchIntervalInBackground: true,
+          },
+        },
+      })
+  );
 
   return (
     <QueryClientProvider client={queryClient}>
