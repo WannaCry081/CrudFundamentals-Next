@@ -4,7 +4,11 @@ import { useEmployeesQuery } from "@/hooks";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import EmployeeListState from "./EmployeeListState";
 
-const EmployeeList = () => {
+interface EmployeeListProps {
+  filter: string;
+}
+
+const EmployeeList = ({ filter }: EmployeeListProps) => {
   const { data, isLoading, isError } = useEmployeesQuery();
 
   if (isLoading) {
@@ -15,13 +19,22 @@ const EmployeeList = () => {
     return <EmployeeListState.ErrorState />;
   }
 
-  if (!data || data!.length === 0) {
+  if (!data || data.length === 0) {
+    return <EmployeeListState.NoContentState />;
+  }
+
+  const filteredEmployees = data.filter(
+    (employee) =>
+      employee.position.toLocaleLowerCase() === filter || filter === "all"
+  );
+
+  if (filteredEmployees.length === 0) {
     return <EmployeeListState.NoContentState />;
   }
 
   return (
     <ul className="space-y-2">
-      {data?.map(({ id, userName, email }) => (
+      {filteredEmployees.map(({ id, userName, email }) => (
         <li
           key={id}
           className="group rounded-lg p-4 bg-white transition-all ease-in hover:bg-indigo-500"
