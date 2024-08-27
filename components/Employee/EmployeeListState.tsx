@@ -20,11 +20,11 @@ const EmployeeListState = {
   },
 
   ErrorState: () => {
-    return <div>Error</div>;
+    return <div>Error...</div>;
   },
 
   NoContentState: () => {
-    return <div>No Employee Found.</div>;
+    return <div>No Employees Found...</div>;
   },
 };
 
