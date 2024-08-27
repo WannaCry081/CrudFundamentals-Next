@@ -22,7 +22,7 @@ const EmployeeDetailsState = {
   },
 
   ErrorState: () => {
-    return <div>Loading...</div>;
+    return <div>Error...</div>;
   },
 
   NotFoundState: () => {
