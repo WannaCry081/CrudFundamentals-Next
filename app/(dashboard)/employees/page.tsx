@@ -36,7 +36,7 @@ export default function Employee() {
 
         <Button
           className="bg-orange-500 inline-flex rounded-lg size-12 items-center justify-center hover:bg-orange-500/80"
-          onClick={() => router.replace("employees/create")}
+          onClick={() => router.push("employees/create")}
         >
           <PlusIcon className="stroke-background" />
         </Button>
