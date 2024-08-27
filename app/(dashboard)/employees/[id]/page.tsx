@@ -21,6 +21,7 @@ interface PageProps {
 export default function Page({ params }: PageProps) {
   const id = params.id;
   const router = useRouter();
+
   const { destroyEmployee } = useDestroyEmployeeQuery(id);
 
   return (
@@ -42,7 +43,7 @@ export default function Page({ params }: PageProps) {
                 Update
               </DropdownMenuItem>
               <DropdownMenuItem
-                className="text-red-500 font-medium hover:text-red-500/80"
+                className="font-medium text-destructive focus:text-destructive/80"
                 onClick={() => destroyEmployee()}
               >
                 Delete
