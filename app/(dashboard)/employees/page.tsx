@@ -1,23 +1,26 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { EmployeeList } from "@/components/employee";
-import { FilterIcon, PlusIcon } from "lucide-react";
+import { PlusIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { AlertDialog } from "@/components/shared";
 
 export default function Employee() {
+  const pathName = usePathname();
   const router = useRouter();
 
   return (
-    <article className="relative">
+    <article>
       <section className="flex justify-between items-center py-4">
         <span>
           <h1 className="text-2xl font-bold text-indigo-500">Employees</h1>
           <p className="text-sm text-neutral-400">Next Fundamentals</p>
         </span>
 
-        <Button className="bg-orange-500 inline-flex rounded-lg size-12 items-center justify-center hover:bg-orange-500/80">
-          <FilterIcon className="stroke-white" />
+        <Button
+          className="bg-orange-500 inline-flex rounded-lg size-12 items-center justify-center hover:bg-orange-500/80"
+          onClick={() => router.push(`${pathName}/create`)}
+        >
+          <PlusIcon className="stroke-background" />
         </Button>
       </section>
 
@@ -35,15 +38,6 @@ export default function Employee() {
 
       <section>
         <EmployeeList />
-      </section>
-
-      <section className="fixed bottom-5 right-5">
-        <Button
-          className="bg-indigo-500 size-14 rounded-full inline-flex items-center justify-center shadow-md hover:bg-indigo-500/80"
-          onClick={() => router.push("employees/create")}
-        >
-          <PlusIcon className="stroke-white size-8" />
-        </Button>
       </section>
     </article>
   );
