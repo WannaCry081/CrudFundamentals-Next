@@ -1,13 +1,13 @@
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
-import { QueryClient, useMutation } from "@tanstack/react-query";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { UpdateEmployeeAction } from "@/actions";
 import { EmployeeSchemaType } from "@/schemas";
 import { AlertDialog } from "@/components/shared";
 
 const useUpdateEmployeeQuery = (id: string) => {
   const router = useRouter();
-  const queryClient = new QueryClient();
+  const queryClient = useQueryClient();
   const [isPending, startTransition] = useTransition();
 
   const { mutate: updateEmployee } = useMutation({
