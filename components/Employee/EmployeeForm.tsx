@@ -22,6 +22,7 @@ import {
 import { EmployeeSchema, type EmployeeSchemaType } from "@/schemas";
 import { PositionType } from "@/types";
 import { twJoin } from "tailwind-merge";
+import { DeleteDialog } from "../shared";
 
 interface EmployeeFormProps {
   isPending: boolean;
@@ -202,13 +203,11 @@ const EmployeeForm = ({
       </form>
 
       <When condition={!!initialData}>
-        <Button
-          variant="destructive"
-          onClick={onDelete}
-          className="mt-2 w-full"
-        >
-          Delete
-        </Button>
+        <DeleteDialog onDelete={onDelete!}>
+          <Button variant="destructive" className="mt-2 w-full">
+            Delete
+          </Button>
+        </DeleteDialog>
       </When>
     </Form>
   );
