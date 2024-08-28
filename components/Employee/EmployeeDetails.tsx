@@ -1,6 +1,6 @@
 "use client";
 import { useEmployeeQuery } from "@/hooks";
-import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import StatusState from "./StatusState";
 
 interface EmployeeDetailsProps {
@@ -24,7 +24,7 @@ const EmployeeDetails = ({ id }: EmployeeDetailsProps) => {
 
   return (
     <>
-      <Avatar className="inline-flex items-center justify-center rounded-full bg-background size-20 shadow-sm">
+      <Avatar className="size-20 shadow-md">
         <AvatarImage />
         <AvatarFallback className="text-indigo-500 text-2xl font-semibold">
           AC
