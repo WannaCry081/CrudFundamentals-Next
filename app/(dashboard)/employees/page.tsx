@@ -27,7 +27,7 @@ export default function Employee() {
   );
 
   return (
-    <article>
+    <article className="min-w-max w-full max-w-2xl mx-auto">
       <section className="flex justify-between items-center py-4">
         <span>
           <h1 className="text-2xl font-bold text-indigo-500">Employees</h1>

@@ -25,7 +25,7 @@ export default function Page({ params }: PageProps) {
   const { destroyEmployee } = useDestroyEmployeeQuery(id);
 
   return (
-    <article className="relative">
+    <article className="relative mx-auto min-w-max w-full max-w-2xl">
       <section className="w-full bg-indigo-500 h-40 rounded-2xl p-4 flex justify-between">
         <BackButton
           className="bg-background hover:bg-neutral-100 rounded-full"

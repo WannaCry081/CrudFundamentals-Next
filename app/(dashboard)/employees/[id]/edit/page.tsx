@@ -34,7 +34,7 @@ export default function Page({ params }: PageProps) {
   }
 
   return (
-    <article>
+    <article className="min-w-max w-full max-w-2xl mx-auto">
       <section className="my-4">
         <BackButton />
       </section>

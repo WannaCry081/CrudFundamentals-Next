@@ -44,15 +44,15 @@ const EmployeeDetails = ({ id }: EmployeeDetailsProps) => {
         <h3 className="text-indigo-500 text-lg font-semibold mb-2">
           Employee Details
         </h3>
-        <span className="inline-flex space-x-4 text-sm">
-          <div className="w-28 font-medium space-y-1.5">
+        <span className="flex space-x-4 text-sm sm:justify-between">
+          <div className="w-28 font-medium space-y-1.5 sm:w-1/2">
             <p>Username: </p>
             <p>Full Name: </p>
             <p>Email Address: </p>
             <p>Position: </p>
             <p>Phone Number: </p>
           </div>
-          <div className="flex-1 space-y-1.5 truncate">
+          <div className="flex-1 space-y-1.5 truncates">
             <p>{data.userName}</p>
             <p>
               {data.firstName} {data.lastName}
