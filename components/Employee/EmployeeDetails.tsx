@@ -1,7 +1,7 @@
 "use client";
 import { useEmployeeQuery } from "@/hooks";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import EmployeeDetailsState from "./EmployeeDetailsState";
+import StatusState from "./StatusState";
 
 interface EmployeeDetailsProps {
   id: string;
@@ -11,15 +11,15 @@ const EmployeeDetails = ({ id }: EmployeeDetailsProps) => {
   const { data, isLoading, isError } = useEmployeeQuery(id);
 
   if (isLoading) {
-    return <EmployeeDetailsState.LoadingState />;
+    return <StatusState.LoadingState.EmployeeDetail />;
   }
 
   if (isError) {
-    return <EmployeeDetailsState.ErrorState />;
+    return <StatusState.ErrorState />;
   }
 
   if (!data) {
-    return <EmployeeDetailsState.NotFoundState />;
+    return <StatusState.NoContentState />;
   }
 
   return (

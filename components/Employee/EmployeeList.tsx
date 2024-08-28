@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEmployeesQuery } from "@/hooks";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import EmployeeListState from "./EmployeeListState";
+import StatusState from "./StatusState";
 
 interface EmployeeListProps {
   filter: string;
@@ -12,15 +12,15 @@ const EmployeeList = ({ filter }: EmployeeListProps) => {
   const { data, isLoading, isError } = useEmployeesQuery();
 
   if (isLoading) {
-    return <EmployeeListState.LoadingState />;
+    return <StatusState.LoadingState.EmployeeList />;
   }
 
   if (isError) {
-    return <EmployeeListState.ErrorState />;
+    return <StatusState.ErrorState />;
   }
 
   if (!data || data.length === 0) {
-    return <EmployeeListState.NoContentState />;
+    return <StatusState.NoContentState />;
   }
 
   const filteredEmployees = data.filter(
@@ -29,7 +29,7 @@ const EmployeeList = ({ filter }: EmployeeListProps) => {
   );
 
   if (filteredEmployees.length === 0) {
-    return <EmployeeListState.NoContentState />;
+    return <StatusState.NoContentState />;
   }
 
   return (

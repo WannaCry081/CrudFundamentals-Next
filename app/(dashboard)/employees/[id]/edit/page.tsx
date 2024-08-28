@@ -6,7 +6,7 @@ import {
 } from "@/hooks";
 import { EmployeeForm } from "@/components/employee";
 import { BackButton } from "@/components/shared";
-import { EmployeeFormState } from "@/components/employee";
+import { StatusState } from "@/components/employee";
 
 interface PageProps {
   params: {
@@ -22,15 +22,15 @@ export default function Page({ params }: PageProps) {
   const { isDestroyPending, destroyEmployee } = useDestroyEmployeeQuery(id);
 
   if (isLoading) {
-    return <EmployeeFormState.LoadingState />;
+    return <StatusState.LoadingState.EmployeeForm />;
   }
 
   if (isError) {
-    return <EmployeeFormState.ErrorState />;
+    return <StatusState.ErrorState />;
   }
 
   if (!data) {
-    return <EmployeeFormState.NotFoundState />;
+    return <StatusState.NoContentState />;
   }
 
   return (
