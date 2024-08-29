@@ -1,22 +1,10 @@
 import { axiosInstance } from "@/config/axios.config";
 import type { EmployeeSchemaType } from "@/schemas";
-import type { Pagination } from "@/types";
 
 const EmployeeService = {
   retrieve: (id: string) =>
     axiosInstance.get(`employees/${id}`).then((res) => res.data),
-  list: (pagination: Pagination) =>
-    axiosInstance
-      .get("employees", {
-        params: {
-          _limit: pagination.limit,
-          _page: pagination.page,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        return res.data;
-      }),
+  list: () => axiosInstance.get("employees").then((res) => res.data),
   create: (request: EmployeeSchemaType) =>
     axiosInstance.post("employees", request),
   update: (id: string, request: EmployeeSchemaType) =>

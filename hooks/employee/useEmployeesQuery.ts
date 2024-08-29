@@ -1,11 +1,11 @@
-import type { Employee, Pagination } from "@/types";
+import type { Employee } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 import { EmployeeService } from "@/services";
 
-const useEmployeesQuery = (pagination: Pagination) => {
+const useEmployeesQuery = () => {
   const { data, error, isLoading, isError } = useQuery<Employee[]>({
     queryKey: ["employees"],
-    queryFn: () => EmployeeService.list(pagination),
+    queryFn: () => EmployeeService.list(),
   });
 
   return { data, error, isLoading, isError };

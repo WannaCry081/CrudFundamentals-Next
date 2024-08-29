@@ -1,9 +1,7 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
 import { useEmployeesQuery } from "@/hooks";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import type { Pagination } from "@/types";
 import StatusState from "./StatusState";
 
 interface EmployeeListProps {
@@ -11,12 +9,7 @@ interface EmployeeListProps {
 }
 
 const EmployeeList = ({ filter }: EmployeeListProps) => {
-  const [paginationData, setPaginationData] = useState<Pagination>({
-    page: 1,
-    limit: 100,
-  });
-
-  const { data, isLoading, isError } = useEmployeesQuery(paginationData);
+  const { data, isLoading, isError } = useEmployeesQuery();
 
   if (isLoading) {
     return <StatusState.LoadingState.EmployeeList />;
