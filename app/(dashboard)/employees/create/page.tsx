@@ -13,7 +13,7 @@ export default function Page() {
       </section>
 
       <section className="mb-4">
-        <h1 className="text-2xl font-bold text-indigo-500">Add new Employee</h1>
+        <h1 className="text-2xl font-bold text-indigo-600">Add new Employee</h1>
       </section>
 
       <EmployeeForm isPending={isPending} onSubmit={createEmployee} />
