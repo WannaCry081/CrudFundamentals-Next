@@ -60,13 +60,15 @@ const EmployeeForm = ({
           name="userName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel htmlFor="userName">Username</FormLabel>
               <FormControl>
                 <Input
+                  id="userName"
                   className="bg-background"
                   placeholder="Username"
                   {...field}
                   disabled={isPending}
+                  autoComplete="username"
                 />
               </FormControl>
               <FormMessage />
@@ -80,13 +82,15 @@ const EmployeeForm = ({
               name="firstName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>First Name</FormLabel>
+                  <FormLabel htmlFor="firstName">First Name</FormLabel>
                   <FormControl>
                     <Input
+                      id="firstName"
                       className="bg-background"
                       placeholder="First Name"
                       {...field}
                       disabled={isPending}
+                      autoComplete="given-name"
                     />
                   </FormControl>
                   <FormMessage />
@@ -101,13 +105,15 @@ const EmployeeForm = ({
               name="lastName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Last Name</FormLabel>
+                  <FormLabel htmlFor="lastName">Last Name</FormLabel>
                   <FormControl>
                     <Input
+                      id="lastName"
                       className="bg-background"
                       placeholder="Last Name"
                       {...field}
                       disabled={isPending}
+                      autoComplete="family-name"
                     />
                   </FormControl>
                   <FormMessage />
@@ -122,13 +128,15 @@ const EmployeeForm = ({
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email Address</FormLabel>
+              <FormLabel htmlFor="email">Email Address</FormLabel>
               <FormControl>
                 <Input
+                  id="email"
                   className="bg-background"
                   placeholder="Email Address"
                   {...field}
                   disabled={isPending}
+                  autoComplete="email"
                 />
               </FormControl>
               <FormMessage />
@@ -143,13 +151,15 @@ const EmployeeForm = ({
               name="phoneNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Phone Number</FormLabel>
+                  <FormLabel htmlFor="phoneNumber">Phone Number</FormLabel>
                   <FormControl>
                     <Input
+                      id="phoneNumber"
                       className="bg-background"
                       placeholder="+63976 123 1234"
                       {...field}
                       disabled={isPending}
+                      autoComplete="tel"
                     />
                   </FormControl>
                   <FormMessage />
@@ -163,13 +173,18 @@ const EmployeeForm = ({
               name="position"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Position</FormLabel>
+                  <FormLabel htmlFor="position">Position</FormLabel>
                   <Select
+                    name="position"
                     disabled={isPending}
                     onValueChange={field.onChange}
                     value={field.value}
                   >
-                    <SelectTrigger className="bg-background">
+                    <SelectTrigger
+                      className="bg-background"
+                      id="position"
+                      aria-label="Position"
+                    >
                       <SelectValue {...field} placeholder="Select Position" />
                     </SelectTrigger>
                     <SelectContent>
@@ -193,9 +208,10 @@ const EmployeeForm = ({
 
         <div className={twJoin("pt-4", !!initialData && "flex gap-2")}>
           <Button
+            aria-label="Submit"
             type="submit"
             disabled={isPending}
-            className="w-full rounded-md  bg-indigo-500 hover:bg-indigo-500/80"
+            className="w-full rounded-md  bg-indigo-600 hover:bg-indigo-600/90"
           >
             {initialData ? "Update" : "Submit"}
           </Button>
@@ -204,7 +220,7 @@ const EmployeeForm = ({
 
       <When condition={!!initialData}>
         <DeleteDialog onDelete={onDelete!}>
-          <Button variant="destructive" className="mt-2 w-full">
+          <Button variant="destructive" className="mt-2 w-full ">
             Delete
           </Button>
         </DeleteDialog>
