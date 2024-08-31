@@ -6,10 +6,8 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    const redirectToEmployees = () => router.push("/employees");
-
-    redirectToEmployees();
+    router.replace("/employees");
   }, [router]);
 
-  return <></>;
+  return null;
 }
