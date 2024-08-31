@@ -37,19 +37,19 @@ const EmployeeList = ({ filter }: EmployeeListProps) => {
       {filteredEmployees.map(({ id, userName, email }) => (
         <li
           key={id}
-          className="group rounded-lg p-4 bg-white transition-all ease-in hover:bg-indigo-500"
+          className="group rounded-lg p-4 bg-white transition-all ease-in hover:bg-indigo-600"
         >
           <Link href={`employees/${id}`} className="w-full">
             <div className="flex items-center space-x-4">
               <Avatar>
-                <AvatarImage />
+                <AvatarImage alt="Profile" />
                 <AvatarFallback>AC</AvatarFallback>
               </Avatar>
               <span className="flex-1">
-                <h5 className="text-sm font-semibold group-hover:text-background">
+                <h2 className="text-sm font-semibold group-hover:text-background">
                   {userName}
-                </h5>
-                <p className="text-xs text-neutral-400 group-hover:text-neutral-200">
+                </h2>
+                <p className="text-xs text-neutral-500  group-hover:text-gray-50">
                   {email}
                 </p>
               </span>
