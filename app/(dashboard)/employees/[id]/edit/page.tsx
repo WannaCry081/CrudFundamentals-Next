@@ -40,8 +40,8 @@ export default function Page({ params }: PageProps) {
       </section>
 
       <section className="mb-4">
-        <h1 className="text-2xl font-bold text-indigo-500">
-          Edt Employee Detail
+        <h1 className="text-2xl font-bold text-indigo-600">
+          Edit Employee Detail
         </h1>
       </section>
 
