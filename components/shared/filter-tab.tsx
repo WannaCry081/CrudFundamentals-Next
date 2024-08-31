@@ -26,7 +26,7 @@ const FilterTab = ({
           key={index}
           className={twJoin(
             currentTab === value.toLocaleLowerCase()
-              ? "bg-indigo-500"
+              ? "bg-indigo-600"
               : "bg-indigo-500/20",
             "inline-block  px-4 py-1 rounded-lg"
           )}
