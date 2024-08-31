@@ -30,12 +30,13 @@ export default function Employee() {
     <article className="sm:min-w-max w-full sm:max-w-2xl mx-auto">
       <section className="flex justify-between items-center py-4">
         <span>
-          <h1 className="text-2xl font-bold text-indigo-500">Employees</h1>
-          <p className="text-sm text-neutral-400">Next Fundamentals</p>
+          <h1 className="text-2xl font-bold text-indigo-600">Employees</h1>
+          <p className="text-sm text-neutral-600">Next Fundamentals</p>
         </span>
 
         <Button
-          className="bg-orange-500 inline-flex rounded-lg size-12 items-center justify-center hover:bg-orange-500/80"
+          aria-label="Add Employee"
+          className="bg-orange-600 inline-flex rounded-lg size-12 items-center justify-center hover:bg-orange-600/90"
           onClick={() => router.push("employees/create")}
         >
           <PlusIcon className="stroke-background" />

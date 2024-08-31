@@ -25,8 +25,8 @@ const EmployeeDetails = ({ id }: EmployeeDetailsProps) => {
   return (
     <>
       <Avatar className="size-20 shadow-md">
-        <AvatarImage />
-        <AvatarFallback className="text-indigo-500 text-2xl font-semibold">
+        <AvatarImage alt="Profile" />
+        <AvatarFallback className="text-indigo-600 text-2xl font-semibold">
           AC
         </AvatarFallback>
       </Avatar>
@@ -35,13 +35,13 @@ const EmployeeDetails = ({ id }: EmployeeDetailsProps) => {
         <h1 className="text-xl font-semibold">
           {data.firstName} {data.lastName}
         </h1>
-        <h4 className="text-sm text-neutral-400 font-medium">
+        <h2 className="text-sm text-neutral-600 font-medium">
           {data.position}
-        </h4>
+        </h2>
       </span>
 
       <div className="bg-background p-4 rounded-lg w-full mt-8">
-        <h3 className="text-indigo-500 text-lg font-semibold mb-2">
+        <h3 className="text-indigo-600 text-lg font-semibold mb-2">
           Employee Details
         </h3>
         <span className="flex space-x-4 text-sm sm:justify-between">

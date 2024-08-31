@@ -23,7 +23,7 @@ const BaseAlertDialog = ({
         variant={variant}
         className={twJoin(
           "bg-background min-w-min w-full max-w-96",
-          variant ?? "text-green-600 border-green-600",
+          variant ?? "text-green-700 border-green-700",
           t.visible ? "animate-enter" : "animate-leave"
         )}
       >
@@ -40,7 +40,7 @@ const AlertDialog = {
     BaseAlertDialog({
       title: "Success",
       message,
-      children: <RocketIcon color="#059669" />,
+      children: <RocketIcon color="#15803D" />,
     });
   },
   Error: (message: string) => {

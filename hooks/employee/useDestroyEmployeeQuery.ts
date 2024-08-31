@@ -13,10 +13,8 @@ const useDestroyEmployeeQuery = (id: string) => {
     mutationFn: () => DestroyEmployeeAction(id),
     onSuccess: () => {
       startTransition(() => {
-        queryClient.invalidateQueries({
-          queryKey: ["employee", id],
-          exact: true,
-        });
+        queryClient.invalidateQueries({ queryKey: ["employee", id] });
+        queryClient.invalidateQueries({ queryKey: ["employees"] });
       });
       router.replace("/employees");
       AlertDialog.Success("Successfully Deleted Employee");
