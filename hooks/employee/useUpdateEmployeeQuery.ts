@@ -15,10 +15,8 @@ const useUpdateEmployeeQuery = (id: string) => {
       UpdateEmployeeAction(id, values),
     onSuccess: () => {
       startTransition(() => {
-        queryClient.invalidateQueries({
-          queryKey: ["employee", id],
-          exact: true,
-        });
+        queryClient.invalidateQueries({ queryKey: ["employee", id] });
+        queryClient.invalidateQueries({ queryKey: ["employees"] });
       });
       router.replace("/employees");
       AlertDialog.Success("Successfully Updated Employee");
