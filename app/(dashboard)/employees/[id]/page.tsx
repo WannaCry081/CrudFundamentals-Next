@@ -26,7 +26,7 @@ export default function Page({ params }: PageProps) {
 
   return (
     <article className="relative mx-auto min-w-max w-full max-w-2xl">
-      <section className="w-full bg-indigo-500 h-40 rounded-2xl p-4 flex justify-between">
+      <section className="w-full bg-indigo-600 h-40 rounded-2xl p-4 flex justify-between">
         <BackButton
           className="bg-background hover:bg-neutral-100 rounded-full"
           iclassName="stroke-indigo-500"
@@ -34,8 +34,11 @@ export default function Page({ params }: PageProps) {
         <div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button className="rounded-full size-12 bg-background hover:bg-neutral-100">
-                <EllipsisVerticalIcon className="stroke-indigo-500" />
+              <Button
+                className="rounded-full size-12 bg-background hover:bg-neutral-100"
+                aria-label="Dropdown menu"
+              >
+                <EllipsisVerticalIcon className="stroke-indigo-600" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent side="right">
