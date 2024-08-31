@@ -14,9 +14,10 @@ const BackButton = ({ className, iclassName }: BackButtonProps) => {
 
   return (
     <Button
+      aria-label="Go back"
       onClick={() => router.back()}
       className={twMerge(
-        "size-12 rounded-lg bg-indigo-500 hover:bg-indigo-500/80",
+        "size-12 rounded-lg bg-indigo-600 hover:bg-indigo-600/80",
         className
       )}
     >
