@@ -35,7 +35,14 @@ To get started with this project, follow these steps:
    cd crudfundamentals-next
    ```
 
-3. **Install Dependencies**
+3. **Create a .env.local file and include the following variables**
+
+   ```bash
+   # .env.local
+   NEXT_PUBLIC_API_URL=
+   ```
+
+4. **Install Dependencies**
 
    ```bash
    npm install
@@ -43,7 +50,7 @@ To get started with this project, follow these steps:
    yarn install
    ```
 
-4. **Run the Development Server**
+5. **Run the Development Server**
 
    ```bash
    npm run dev
@@ -53,7 +60,7 @@ To get started with this project, follow these steps:
 
    Your application will be available at [http://localhost:3000](http://localhost:3000).
 
-5. **Run the JSON Server**
+6. **Run the JSON Server**
 
    ```bash
    npm run server
