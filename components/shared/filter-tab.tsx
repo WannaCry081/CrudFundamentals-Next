@@ -1,40 +1,31 @@
-import { Dispatch, SetStateAction } from "react";
+import Link from "next/link";
 import { twJoin } from "tailwind-merge";
 
 interface FilterTabProps {
-  currentTab: string;
-  setCurrentTab: Dispatch<SetStateAction<string>>;
-  updateSearchParams: (value: string) => void;
+  selectedPosition: string;
 }
 
-const FilterTab = ({
-  currentTab,
-  setCurrentTab,
-  updateSearchParams,
-}: FilterTabProps) => {
+const FilterTab = ({ selectedPosition }: FilterTabProps) => {
   const TAB_ITEMS = ["All", "Project Manager", "Developer", "QA Tester"];
-
-  const onClick = (value: string) => {
-    setCurrentTab(value);
-    updateSearchParams(value);
-  };
 
   return (
     <section className="py-2 mb-2 space-x-2 text-sm overflow-auto flex">
       {TAB_ITEMS.map((value, index) => (
-        <button
+        <Link
           key={index}
+          href={`?${new URLSearchParams({
+            position: value.toLowerCase(),
+          })}`}
           className={twJoin(
-            currentTab === value.toLocaleLowerCase()
+            selectedPosition === value.toLocaleLowerCase()
               ? "bg-indigo-600"
               : "bg-indigo-500/20",
             "inline-block  px-4 py-1 rounded-lg"
           )}
-          onClick={() => onClick(value.toLocaleLowerCase())}
         >
           <p
             className={twJoin(
-              currentTab === value.toLocaleLowerCase()
+              selectedPosition === value.toLocaleLowerCase()
                 ? "text-white"
                 : "text-black",
               "truncate"
@@ -42,7 +33,7 @@ const FilterTab = ({
           >
             {value}
           </p>
-        </button>
+        </Link>
       ))}
     </section>
   );

@@ -5,10 +5,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import StatusState from "./StatusState";
 
 interface EmployeeListProps {
-  filter: string;
+  selectedPosition: string;
 }
 
-const EmployeeList = ({ filter }: EmployeeListProps) => {
+const EmployeeList = ({ selectedPosition }: EmployeeListProps) => {
   const { data, isLoading, isError } = useEmployeesQuery();
 
   if (isLoading) {
@@ -25,7 +25,8 @@ const EmployeeList = ({ filter }: EmployeeListProps) => {
 
   const filteredEmployees = data.filter(
     (employee) =>
-      employee.position.toLocaleLowerCase() === filter || filter === "all"
+      employee.position.toLocaleLowerCase() === selectedPosition ||
+      selectedPosition === "all"
   );
 
   if (filteredEmployees.length === 0) {

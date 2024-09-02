@@ -1,30 +1,16 @@
-"use client";
-import { useRouter, useSearchParams } from "next/navigation";
-import { EmployeeList } from "@/components/employee";
+import Link from "next/link";
 import { PlusIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { EmployeeList } from "@/components/employee";
 import FilterTab from "@/components/shared/filter-tab";
-import { useCallback, useEffect, useState } from "react";
 
-export default function Employee() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+interface EmployeeProps {
+  searchParams: {
+    position?: string;
+  };
+}
 
-  const [currentTab, setCurrentTab] = useState<string>("all");
-
-  useEffect(() => {
-    const position = searchParams.get("position") || "all";
-    setCurrentTab(position);
-  }, [searchParams]);
-
-  const updateSearchParams = useCallback(
-    (value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set("position", value);
-      router.push(`?${params.toString()}`);
-    },
-    [router, searchParams]
-  );
+export default function Employee({ searchParams }: EmployeeProps) {
+  const selectedPosition = (searchParams.position as string) || "all";
 
   return (
     <article className="sm:min-w-max w-full sm:max-w-2xl mx-auto">
@@ -34,23 +20,19 @@ export default function Employee() {
           <p className="text-sm text-neutral-600">Next Fundamentals</p>
         </span>
 
-        <Button
+        <Link
+          href="/employees/create"
           aria-label="Add Employee"
           className="bg-orange-600 inline-flex rounded-lg size-12 items-center justify-center hover:bg-orange-600/90"
-          onClick={() => router.push("employees/create")}
         >
           <PlusIcon className="stroke-background" />
-        </Button>
+        </Link>
       </section>
 
-      <FilterTab
-        currentTab={currentTab}
-        setCurrentTab={setCurrentTab}
-        updateSearchParams={updateSearchParams}
-      />
+      <FilterTab selectedPosition={selectedPosition} />
 
       <section>
-        <EmployeeList filter={currentTab} />
+        <EmployeeList selectedPosition={selectedPosition} />
       </section>
     </article>
   );
