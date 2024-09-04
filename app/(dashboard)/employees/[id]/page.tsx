@@ -47,7 +47,7 @@ export default function Page({ params }: PageProps) {
               </DropdownMenuItem>
               <DropdownMenuItem
                 className="font-medium text-destructive focus:text-destructive/80"
-                onClick={destroyEmployee}
+                onClick={() => destroyEmployee()}
               >
                 Delete
               </DropdownMenuItem>
