@@ -68,7 +68,19 @@ To get started with this project, you can either run it locally or use Docker:
 
 ### Docker Installation
 
-1. **Run the bash file by executing the code below**
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/WannaCry081/CrudFundamentals-Next.git
+   ```
+
+2. **Navigate to the Project Directory**
+
+   ```bash
+   cd crudfundamentals-next
+   ```
+
+3. **Run the bash file by executing the code below**
 
    ```bash
    ./run.sh
