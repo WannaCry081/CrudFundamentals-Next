@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 import { EmployeeDetails } from "@/components/employee";
 import { BackButton } from "@/components/shared";
 import { Button } from "@/components/ui/button";
@@ -47,7 +47,7 @@ export default function Page({ params }: PageProps) {
               </DropdownMenuItem>
               <DropdownMenuItem
                 className="font-medium text-destructive focus:text-destructive/80"
-                onClick={() => destroyEmployee()}
+                onClick={destroyEmployee}
               >
                 Delete
               </DropdownMenuItem>
