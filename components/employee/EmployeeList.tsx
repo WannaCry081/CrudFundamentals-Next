@@ -23,11 +23,13 @@ const EmployeeList = ({ selectedPosition }: EmployeeListProps) => {
     return <StatusState.NoContentState />;
   }
 
-  const filteredEmployees = data.filter(
-    (employee) =>
-      employee.position.toLocaleLowerCase() === selectedPosition ||
-      selectedPosition === "all"
-  );
+  const filteredEmployees = Array.isArray(data)
+    ? data.filter(
+        (employee) =>
+          employee.position.toLocaleLowerCase() === selectedPosition ||
+          selectedPosition === "all"
+      )
+    : [];
 
   if (filteredEmployees.length === 0) {
     return <StatusState.NoContentState />;
