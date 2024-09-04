@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 import { EmployeeDetails } from "@/components/employee";
 import { BackButton } from "@/components/shared";
 import { Button } from "@/components/ui/button";
