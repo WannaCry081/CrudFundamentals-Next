@@ -1,8 +1,8 @@
-# CRUD Fundamentals - Next ⛑️
+# CRUD Fundamentals - Next 🪖
 
 ![Cover](./assets/Cover.png)
 
-This project demonstrates the fundamental concepts of CRUD (Create, Read, Update, Delete) operations by building a straightforward employee management system. It highlights best practices for utilizing TanStack React Query, Axios, and other technologies to develop a functional CRUD application using Next.js with TypeScript.
+This project demonstrates the fundamental concepts of CRUD (Create, Read, Update, Delete) operations by building a straightforward employee management system. It emphasizes best practices for utilizing TanStack React Query, Axios, and other technologies to develop a functional CRUD application using Next.js with TypeScript.
 
 ## 📝 Features
 
@@ -13,15 +13,21 @@ This project demonstrates the fundamental concepts of CRUD (Create, Read, Update
 
 ## 💻 Technologies
 
-- [**Next JS:**](https://nextjs.org/docs/getting-started/installation) A React framework for building server-side rendered and static web applications.
-- [**Zod:**](https://zod.dev/) A TypeScript-first schema declaration and validation library.
-- [**Axios:**](https://axios-http.com/docs/intro) A promise-based HTTP client for making requests to the server.
-- [**@tanstack/react-query:**](https://tanstack.com/query/v4/docs/framework/react/installation) A data-fetching library for managing server state in React applications.
-- [**React-Hot-Toast:**](https://react-hot-toast.com/) A lightweight and customizable toast notification library for React.
+- [**Next.js**](https://nextjs.org/docs/getting-started/installation): A React framework for building server-side rendered and static web applications.
+- [**Zod**](https://zod.dev/): A TypeScript-first schema declaration and validation library.
+- [**Axios**](https://axios-http.com/docs/intro): A promise-based HTTP client for making requests to the server.
+- [**@tanstack/react-query**](https://tanstack.com/query/v4/docs/framework/react/installation): A data-fetching library for managing server state in React applications.
+- [**React-Hot-Toast**](https://react-hot-toast.com/): A lightweight and customizable toast notification library for React.
+- [**Next.js TopLoader**](https://www.npmjs.com/package/nextjs-toploader): A customizable top-loading bar for Next.js that provides visual feedback for page transitions and loading states.
 
 ## 🧑🏻‍💻 Installation
 
-To get started with this project, follow these steps:
+To get started with this project, you can either run it locally or use Docker:
+
+- [Local Installation](#local-installation)
+- [Docker Installation](#docker-installation)
+
+### Local Installation
 
 1. **Clone the Repository**
 
@@ -50,25 +56,25 @@ To get started with this project, follow these steps:
    yarn install
    ```
 
-5. **Run the Development Server**
+5. **Run the Development and JSON Server**
 
    ```bash
-   npm run dev
+   npm run app
    # or
-   yarn dev
+   yarn app
    ```
 
-   Your application will be available at [http://localhost:3000](http://localhost:3000).
+   Your application will be available at [http://localhost:3000](http://localhost:3000) and [http://localhost:8000](http://localhost:8000).
 
-6. **Run the JSON Server**
+### Docker Installation
+
+1. **Run the bash file by executing the code below**
 
    ```bash
-   npm run server
-   # or
-   yarn server
+   ./run.sh
    ```
 
-   Your application will be available at [http://localhost:3000](http://localhost:3000).
+   Ensure that Docker is installed on your system for this to work.
 
 ## 📦 Usage
 

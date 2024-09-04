@@ -1,4 +1,4 @@
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 import { useTransition } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AlertDialog } from "@/components/shared";
@@ -13,7 +13,6 @@ const useDestroyEmployeeQuery = (id: string) => {
     mutationFn: () => DestroyEmployeeAction(id),
     onSuccess: () => {
       startTransition(() => {
-        queryClient.invalidateQueries({ queryKey: ["employee", id] });
         queryClient.invalidateQueries({ queryKey: ["employees"] });
       });
       router.replace("/employees");
